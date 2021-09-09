@@ -10,6 +10,10 @@ class BandList {
     ]
   }
 
+  getBands(){
+    return this.bands
+  }
+
   addBand(name){
     const newBand = new Band(name);
     this.bands.push(newBand)
@@ -37,6 +41,6 @@ class BandList {
       return band
     })
   }
-
-  
 }
+
+module.exports =  BandList

@@ -11,7 +11,14 @@
 
     <h1 class="mt-5">Not here</h1>
     <hr>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/3.0.1/socket.io.js" integrity="sha512-vGcPDqyonHb0c11UofnOKdSAt5zYRpKI4ow+v6hat4i96b7nHSn8PQyk0sT5L9RECyksp+SztCPP6bqeeGaRKg==" crossorigin="anonymous"></script>
+
     <script>
+        // Conexión con el socket server
+        const socket = io('http://localhost:4000');
+        socket.on('current-bands', (bands) => {
+            console.log(bands);
+        })
     </script>
     
 </body>

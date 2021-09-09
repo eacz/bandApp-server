@@ -1,29 +1,20 @@
-
+const BandList = require('./band-list');
 
 class Sockets {
+  constructor(io) {
+    this.io = io
+    this.bandList = new BandList()
+    this.socketEvents()
+  }
 
-    constructor( io ) {
+  socketEvents() {
+    this.io.on('connection', (socket) => {
+      console.log('Client connected');
 
-        this.io = io;
-
-        this.socketEvents();
-    }
-
-    socketEvents() {
-        this.io.on('connection', ( socket ) => {
-
-            socket.on('mensaje-to-server', ( data ) => {
-                console.log( data );
-                
-                this.io.emit('mensaje-from-server', data );
-            });
-            
-        
-        });
-    }
-
-
+      //emit to client all the bands
+      socket.emit('current-bands', this.bandList.getBands())
+    })
+  }
 }
 
-
-module.exports = Sockets;
+module.exports = Sockets
