@@ -6,7 +6,7 @@ class BandList {
       new Band('BTR'),
       new Band('1D'),
       new Band('Maroon 5'),
-      new Band('ZzZzZzZzZ'),
+      new Band('Metallica'),
     ]
   }
 

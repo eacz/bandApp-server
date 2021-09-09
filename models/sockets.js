@@ -13,6 +13,11 @@ class Sockets {
 
       //emit to client all the bands
       socket.emit('current-bands', this.bandList.getBands())
+      
+      socket.on('vote-band', (bandId) => {
+        this.bandList.increaseVotes(bandId) 
+        this.io.emit('current-bands', this.bandList.getBands())
+      })
     })
   }
 }
