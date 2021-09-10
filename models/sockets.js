@@ -28,6 +28,11 @@ class Sockets {
         this.bandList.changeName(id, name)
         this.io.emit('current-bands', this.bandList.getBands())
       })
+      
+      socket.on('create-band', ({name}) => {
+        this.bandList.addBand(name)
+        this.io.emit('current-bands', this.bandList.getBands())
+      } )
     })
   }
 }
