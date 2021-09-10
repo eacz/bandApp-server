@@ -18,6 +18,11 @@ class Sockets {
         this.bandList.increaseVotes(bandId) 
         this.io.emit('current-bands', this.bandList.getBands())
       })
+      
+      socket.on('delete-band', (bandId) => {
+        this.bandList.removeBand(bandId)
+        this.io.emit('current-bands', this.bandList.getBands())
+      })
     })
   }
 }
